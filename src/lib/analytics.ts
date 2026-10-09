@@ -6,7 +6,7 @@ declare global {
 }
 
 export const GA_MEASUREMENT_ID =
-  import.meta.env.VITE_GA_MEASUREMENT_ID || "";
+  import.meta.env.VITE_GA_MEASUREMENT_ID || "G-QGQ1TBD0DH";
 
 export function trackEvent(eventName: string, params?: Record<string, any>) {
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
