@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Download } from "lucide-react";
+import { trackInstallClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 
 export function PwaRegister() {
@@ -43,13 +44,14 @@ export function InstallButton({ className }: { className?: string }) {
   if (standalone) return null;
 
   async function install() {
+    trackInstallClick();
     if (deferred) {
       await deferred.prompt();
       const choice = await deferred.userChoice;
       if (choice.outcome === "accepted") setDeferred(null);
       return;
     }
-    window.location.assign("/?install=1");
+    window.location.assign("./?install=1");
   }
 
   return (

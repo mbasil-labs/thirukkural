@@ -2,9 +2,32 @@ import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-r
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { PwaRegister } from "@/components/pwa";
+import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 import appCss from "../styles.css?url";
 
 const APP_NAME = "Thirukkural";
+
+function AnalyticsHead() {
+  if (!GA_MEASUREMENT_ID) return null;
+  return (
+    <>
+      <script
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `,
+        }}
+      />
+    </>
+  );
+}
 
 export const Route = createRootRoute({
   head: () => ({
@@ -44,6 +67,7 @@ export const Route = createRootRoute({
     <html lang="en" suppressHydrationWarning className="antialiased">
       <head>
         <HeadContent />
+        <AnalyticsHead />
       </head>
       <body>
         <PreviewHostBridge />

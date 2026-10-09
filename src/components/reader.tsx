@@ -11,6 +11,13 @@ import {
   TOTAL_KURALS,
   getChapter,
 } from "@/lib/kural-data";
+import {
+  trackBookmarkFilter,
+  trackJumpSheet,
+  trackKuralView,
+  trackOpenBookmarksList,
+  trackScriptToggle,
+} from "@/lib/analytics";
 import { currentKuralNumber, usePathStore } from "@/lib/store";
 
 export function Reader() {
@@ -69,7 +76,8 @@ export function Reader() {
   useEffect(() => {
     if (!hydrated) return;
     markSeen(number);
-  }, [hydrated, number, markSeen]);
+    trackKuralView(number, section, chapter.ta);
+  }, [hydrated, number, markSeen, section, chapter.ta]);
 
   useEffect(() => {
     function onKey(event: KeyboardEvent) {
@@ -119,7 +127,10 @@ export function Reader() {
           {/* Bookmark Mode Filter Toggle Button */}
           <button
             type="button"
-            onClick={toggleBookmarkFilter}
+            onClick={() => {
+              toggleBookmarkFilter();
+              trackBookmarkFilter(!bookmarkFilter);
+            }}
             title={bookmarkFilter ? "Switch to All Kurals" : "Navigate Bookmarked Kurals Only"}
             aria-label="Toggle Bookmarked Navigation Mode"
             className={`inline-flex h-8 sm:h-9 landscape:h-7.5 items-center gap-1 rounded-md border px-2.5 text-xs landscape:text-[11px] font-medium transition-all duration-150 ease-out active:scale-[0.96] ${
@@ -135,7 +146,10 @@ export function Reader() {
           {/* Bookmarks Drawer Trigger Button */}
           <button
             type="button"
-            onClick={() => setBookmarksOpen(true)}
+            onClick={() => {
+              setBookmarksOpen(true);
+              trackOpenBookmarksList(bookmarksList.length);
+            }}
             title="View All Bookmarks"
             aria-label="Open Bookmarked Kurals List"
             className="relative inline-flex h-8 sm:h-9 landscape:h-7.5 items-center justify-center rounded-md border border-border-dark bg-bg-raised px-2 text-xs landscape:text-[11px] font-medium text-on-dark transition-transform duration-150 ease-out active:scale-[0.96]"
@@ -146,7 +160,10 @@ export function Reader() {
           {/* Script mode toggle button */}
           <button
             type="button"
-            onClick={toggleScriptMode}
+            onClick={() => {
+              toggleScriptMode();
+              trackScriptToggle(scriptMode === "tamil" ? "transliteration" : "tamil");
+            }}
             title="Toggle Tamil / English Letters Transliteration"
             aria-label="Toggle Tamil / Transliteration script"
             className="inline-flex h-8 sm:h-9 landscape:h-7.5 items-center gap-1.5 rounded-md border border-border-dark bg-bg-raised px-2.5 text-xs landscape:text-[11px] font-medium text-on-dark transition-transform duration-150 ease-out active:scale-[0.96]"
@@ -175,7 +192,10 @@ export function Reader() {
       <div className="mt-1 landscape:mt-0.5 flex shrink-0 items-center justify-between text-xs text-on-dark-muted px-0.5">
         <button
           type="button"
-          onClick={() => setJumpOpen(true)}
+          onClick={() => {
+            setJumpOpen(true);
+            trackJumpSheet("open");
+          }}
           className="flex items-center gap-1.5 rounded-md text-left transition-opacity duration-150 hover:text-on-dark py-0.5"
         >
           <span className="font-tamil text-xs font-medium text-on-dark truncate" lang={isTr ? "en" : "ta"}>

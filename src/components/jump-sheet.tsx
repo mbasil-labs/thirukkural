@@ -10,6 +10,7 @@ import {
   shortSectionName,
   type SectionId,
 } from "@/lib/kural-data";
+import { trackJumpSheet } from "@/lib/analytics";
 import { usePathStore } from "@/lib/store";
 
 export function JumpSheet({
@@ -35,7 +36,9 @@ export function JumpSheet({
   );
 
   function jump(n: number) {
-    goTo(clampKural(n));
+    const target = clampKural(n);
+    goTo(target);
+    trackJumpSheet("select", target);
     onOpenChange(false);
   }
 

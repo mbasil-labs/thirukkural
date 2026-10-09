@@ -1,5 +1,6 @@
 import { Bookmark, BookmarkCheck } from "lucide-react";
 import { getChapter, getKural, splitEnglishLines } from "@/lib/kural-data";
+import { trackBookmarkToggle } from "@/lib/analytics";
 import { usePathStore } from "@/lib/store";
 
 export function KuralCard({ number }: { number: number }) {
@@ -33,7 +34,10 @@ export function KuralCard({ number }: { number: number }) {
         <div className="flex items-center gap-3 shrink-0">
           <button
             type="button"
-            onClick={() => toggleBookmark(number)}
+            onClick={() => {
+              toggleBookmark(number);
+              trackBookmarkToggle(number, isBookmarked);
+            }}
             title={isBookmarked ? "Remove Bookmark" : "Bookmark this Kural"}
             aria-label={isBookmarked ? "Remove Bookmark" : "Bookmark Kural"}
             className="inline-flex size-9 items-center justify-center rounded-full transition-transform duration-150 active:scale-90 focus:outline-none"

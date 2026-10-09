@@ -6,6 +6,7 @@ import {
   sections,
   shortSectionName,
 } from "@/lib/kural-data";
+import { trackSectionChange } from "@/lib/analytics";
 import { usePathStore } from "@/lib/store";
 
 export function SectionTabs() {
@@ -37,7 +38,10 @@ export function SectionTabs() {
             type="button"
             role="tab"
             aria-selected={active}
-            onClick={() => setSection(item.id as SectionId)}
+            onClick={() => {
+              setSection(item.id as SectionId);
+              trackSectionChange(item.id);
+            }}
             className={cn(
               "relative flex min-h-8 sm:min-h-9 landscape:min-h-7 flex-row items-center justify-center gap-1.5 rounded-sm px-1 py-1 landscape:py-0.5 transition-[background-color,color,transform] duration-150 ease-out active:scale-[0.97]",
               active

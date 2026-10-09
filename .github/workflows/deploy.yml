@@ -34,6 +34,7 @@ jobs:
         env:
           STATIC_EXPORT: "true"
           BASE_PATH: "/thirukkural/"
+          VITE_GA_MEASUREMENT_ID: ${{ vars.VITE_GA_MEASUREMENT_ID || secrets.VITE_GA_MEASUREMENT_ID || '' }}
         run: npm run build:static
 
       - name: Upload Pages artifact
