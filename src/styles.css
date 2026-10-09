@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #14110e;
+  --color-bg-raised: #1d1915;
+  --color-paper: #f4ead8;
+  --color-paper-edge: #e4d6bc;
+  --color-ink: #1c1612;
+  --color-ink-soft: #4a4038;
+  --color-muted: #8a7d70;
+  --color-accent: #b5523a;
+  --color-accent-fg: #f4ead8;
+  --color-line: #d9cbb4;
+  --color-on-dark: #f4ead8;
+  --color-on-dark-muted: #b7a898;
+  --color-on-dark-subtle: #8a7d70;
+  --color-border-dark: #2e2822;
+  --color-good: #6f8f6a;
+
+  --font-tamil: "Noto Serif Tamil", "Noto Serif", serif;
+  --font-display: "Newsreader", "Noto Serif Tamil", serif;
+  --font-sans: "Newsreader", "Noto Serif Tamil", ui-serif, Georgia, serif;
+
+  --text-kural: clamp(1.35rem, 1.1rem + 1.8vw, 1.95rem);
+  --text-verse: clamp(1rem, 0.92rem + 0.5vw, 1.18rem);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  --shadow-paper: 0 18px 40px -24px rgb(0 0 0 / 0.55), 0 2px 0 rgb(255 255 255 / 0.35) inset;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-bg);
+    color: var(--color-on-dark);
+  }
+
+  html,
+  body {
+    min-height: 100dvh;
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    overflow: hidden;
+    font-family: var(--font-display);
+    background: var(--color-bg);
+    color: var(--color-on-dark);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build and output directories
+dist/
+.output/
+.vercel/
+.tanstack/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Sandbox & dev caches
+.grok/
+.node_modules.lock
+artifacts/
+
+# OS and Editor metadata
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/

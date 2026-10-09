@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Thirukkural",
+      "hasCanvas": false,
+      "bodyTextLen": 414,
+      "bodyTextHash": "2fb25eb7bb31986a12d01e50fe2cea1c53b365d03435cbad0b489a86c366cb08",
+      "bodyTextPrefix": "திருக்குறள் G.U. Pope · 0/1330 walked 0 Install அறம் Virtue பொரு",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Thirukkural",
+      "hasCanvas": false,
+      "bodyTextLen": 406,
+      "bodyTextHash": "ad86b124f34f1df4fcc4c8ade1902482237cb9964682a33e6324374c1c000744",
+      "bodyTextPrefix": "திருக்குறள் G.U. Pope · 0/1330 walked 0 அறம் Virtue பொருள் Wealt",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

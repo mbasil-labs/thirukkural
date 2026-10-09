@@ -1,0 +1,41 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Thirukkural",
+      "hasCanvas": false,
+      "bodyTextLen": 563,
+      "bodyTextHash": "df198894951af6dced826f710de195f28d18672073ee50ab3027c4b214e14d46",
+      "bodyTextPrefix": "திருக்குறள் G.U. Pope · 1/1330 walked 1 Install அறம் Virtue பொரு",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Thirukkural",
+      "hasCanvas": false,
+      "bodyTextLen": 555,
+      "bodyTextHash": "2f9b975b9df3e1384c93efb7dddd62a42632c4d61859b18643f1d2e148ad2fc8",
+      "bodyTextPrefix": "திருக்குறள் G.U. Pope · 1/1330 walked 1 அறம் Virtue பொருள் Wealt",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": true,
+  "baselineReasons": [
+    "desktop: body text changed (414 -> 563 chars, hash mismatch)",
+    "mobile: body text changed (406 -> 555 chars, hash mismatch)"
+  ]
+}

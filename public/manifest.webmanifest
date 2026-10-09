@@ -1,0 +1,21 @@
+{
+  "name": "Thirukkural",
+  "short_name": "Thirukkural",
+  "description": "Walk the 1,330 couplets of the Thirukkural in English, with Tamil and transliteration.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#14110e",
+  "theme_color": "#14110e",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
